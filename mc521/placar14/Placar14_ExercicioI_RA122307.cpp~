@@ -1,0 +1,28 @@
+#include <cstdio>
+#include <vector>
+
+using namespace std;
+
+vector <vector<int> > AdjList;
+vector<int> match , vis; / / g l o b a l v a r i a b l e s
+
+int Aug(int l){
+  if (vis[l])
+    return 0;
+
+  for (int j = 0; j < (int)AdjList[l].size(); j++){
+    int r = AdjList[l][j];
+    if(match[r] == -1 || Aug(match[r])){
+      match[r] = l;
+      return 1;
+    }
+  }
+  return 0;
+}
+
+int main(){
+
+
+
+  return 0;
+}
